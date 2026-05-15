@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>ODS Práticas</title></head>
+<body>
+<h1>Registrar prática sustentável</h1>
+<form id="f">
+<input id="nomeUsuario" placeholder="Nome"/><br>
+<input id="tipo" placeholder="Tipo"/><br>
+<input id="data" type="date"/><br>
+<input id="descricao" placeholder="Descrição"/><br>
+<button>Enviar</button>
+</form>
+<script>
+f.onsubmit=async(e)=>{
+e.preventDefault();
+await fetch('http://localhost:3000/pratica',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+nomeUsuario:nomeUsuario.value,
+tipo:tipo.value,
+data:data.value,
+descricao:descricao.value
+})
+});
+alert('Enviado!');
+}
+</script>
+</body>
+</html>
